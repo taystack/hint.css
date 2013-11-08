@@ -1,5 +1,5 @@
 // hint-variables.scss
-// 
+//
 // Declares some variables used within the library.
 
 
@@ -47,3 +47,7 @@ $tooltipFontSize: 12pt !default;
 
 // Font color
 $tooltipFontColor: #333 !default;
+
+// Default text color
+// -----------------------------------------------------------------------------
+$hint-text-color: white !default;

@@ -2,7 +2,7 @@
  * source: hint-position.scss
  *
  * Defines the positoning logic for the tooltips.
- * 
+ *
  * Classes added:
  * 	1) hint--top
  * 	2) hint--bottom
@@ -25,10 +25,6 @@
 		#{$propertyY}: 100%;
 		left: 50%;
 	}
-
-	&:hover, &:focus {
-		@include set-margin('translateY', $transitionDirection);
-	}
 }
 
 @mixin horizontal-positioned-tooltip($propertyX, $transitionDirection) {
@@ -47,10 +43,6 @@
 	&:before, &:after {
 		#{$propertyX}: 100%;
 		bottom: 50%;
-	}
-
-	&:hover, &:focus {
-		@include set-margin('translateX', $transitionDirection);
 	}
 }
 
