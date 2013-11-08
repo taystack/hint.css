@@ -21,7 +21,7 @@
  * Each tooltip is made of 2 parts:
  * 	1) body (:after)
  * 	2) arrow (:before)
- * 
+ *
  * Classes added:
  * 	1) hint
  */
@@ -36,16 +36,11 @@
    */ }
   .hint:before, .hint:after, [data-hint]:before, [data-hint]:after {
     position: absolute;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
     visibility: hidden;
     opacity: 0;
     z-index: 1000000;
     pointer-events: none;
-    -webkit-transition: 0.3s ease;
-    -moz-transition: 0.3s ease;
-    transition: 0.3s ease; }
+  }
   .hint:hover:before, .hint:hover:after, .hint:focus:before, .hint:focus:after, [data-hint]:hover:before, [data-hint]:hover:after, [data-hint]:focus:before, [data-hint]:focus:after {
     visibility: visible;
     opacity: 1; }
@@ -57,9 +52,9 @@
     z-index: 1000001; }
   .hint:after, [data-hint]:after {
     content: attr(data-hint);
-    background: #383838;
+    background: $hint-default-border-color;
     color: white;
-    text-shadow: 0 -1px 0px black;
+    text-shadow: $hint-text-shadow
     padding: 8px 10px;
     font-size: 12px;
     line-height: 12px;
@@ -70,7 +65,7 @@
  * source: hint-position.scss
  *
  * Defines the positoning logic for the tooltips.
- * 
+ *
  * Classes added:
  * 	1) hint--top
  * 	2) hint--bottom
@@ -81,16 +76,16 @@
  * set default color for tooltip arrows
  */
 .hint--top:before {
-  border-top-color: #383838; }
+  border-top-color: $hint-default-border-color; }
 
 .hint--bottom:before {
-  border-bottom-color: #383838; }
+  border-bottom-color: $hint-default-border-color; }
 
 .hint--left:before {
-  border-left-color: #383838; }
+  border-left-color: $hint-default-border-color; }
 
 .hint--right:before {
-  border-right-color: #383838; }
+  border-right-color: $hint-default-border-color; }
 
 /**
  * top tooltip
@@ -158,82 +153,82 @@
  * source: hint-color-types.scss
  *
  * Contains tooltips of various types based on color differences.
- * 
+ *
  * Classes added:
  * 	1) hint--error
  * 	2) hint--warning
  * 	3) hint--info
  * 	4) hint--success
- * 	
+ *
  */
 /**
  * Error
  */
 .hint--error:after {
-  background-color: #b34e4d;
-  text-shadow: 0 -1px 0px #592726; }
+  background-color: $hint-error-background;
+  text-shadow: $hint-text-shadow; }
 .hint--error.hint--top:before {
-  border-top-color: #b34e4d; }
+  border-top-color: $hint-error-background; }
 .hint--error.hint--bottom:before {
-  border-bottom-color: #b34e4d; }
+  border-bottom-color: $hint-error-background; }
 .hint--error.hint--left:before {
-  border-left-color: #b34e4d; }
+  border-left-color: $hint-error-background; }
 .hint--error.hint--right:before {
-  border-right-color: #b34e4d; }
+  border-right-color: $hint-error-background; }
 
 /**
  * Warning
  */
 .hint--warning:after {
-  background-color: #c09854;
-  text-shadow: 0 -1px 0px #6c5328; }
+  background-color: $hint-warning-background;
+  text-shadow: $hint-text-shadow; }
 .hint--warning.hint--top:before {
-  border-top-color: #c09854; }
+  border-top-color: $hint-warning-background; }
 .hint--warning.hint--bottom:before {
-  border-bottom-color: #c09854; }
+  border-bottom-color: $hint-warning-background; }
 .hint--warning.hint--left:before {
-  border-left-color: #c09854; }
+  border-left-color: $hint-warning-background; }
 .hint--warning.hint--right:before {
-  border-right-color: #c09854; }
+  border-right-color: $hint-warning-background; }
 
 /**
  * Info
  */
 .hint--info:after {
-  background-color: #3986ac;
-  text-shadow: 0 -1px 0px #193b4d; }
+  background-color: $hint-info-background;
+  text-shadow: $hint-text-shadow; }
 .hint--info.hint--top:before {
-  border-top-color: #3986ac; }
+  border-top-color: $hint-info-background; }
 .hint--info.hint--bottom:before {
-  border-bottom-color: #3986ac; }
+  border-bottom-color: $hint-info-background; }
 .hint--info.hint--left:before {
-  border-left-color: #3986ac; }
+  border-left-color: $hint-info-background; }
 .hint--info.hint--right:before {
-  border-right-color: #3986ac; }
+  border-right-color: $hint-info-background; }
 
 /**
  * Success
  */
 .hint--success:after {
-  background-color: #458746;
-  text-shadow: 0 -1px 0px #1a321a; }
+  background-color: $hint-success-background;
+  text-shadow: $hint-text-shadow; }
 .hint--success.hint--top:before {
-  border-top-color: #458746; }
+  border-top-color: $hint-success-background; }
 .hint--success.hint--bottom:before {
-  border-bottom-color: #458746; }
+  border-bottom-color: $hint-success-background; }
 .hint--success.hint--left:before {
-  border-left-color: #458746; }
+  border-left-color: $hint-success-background; }
 .hint--success.hint--right:before {
-  border-right-color: #458746; }
+  border-right-color: $hint-success-background; }
 
 /**
  * source: hint-always.scss
  *
  * Defines a persisted tooltip which shows always.
- * 
+ *
  * Classes added:
  * 	1) hint--always
- * 	
+ *
  */
 .hint--always:after, .hint--always:before {
   opacity: 1;
@@ -259,24 +254,10 @@
  * source: hint-rounded.scss
  *
  * Defines rounded corner tooltips.
- * 
+ *
  * Classes added:
  * 	1) hint--rounded
- *  
+ *
  */
 .hint--rounded:after {
   border-radius: 4px; }
-
-/**
- * source: hint-effects.scss
- *
- * Defines various transition effects for the tooltips.
- * 
- * Classes added:
- * 	1) hint--bounce
- * 	
- */
-.hint--bounce:before, .hint--bounce:after {
-  -webkit-transition: opacity 0.3s ease, visibility 0.3s ease, -webkit-transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-  -moz-transition: opacity 0.3s ease, visibility 0.3s ease, -moz-transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24); }
