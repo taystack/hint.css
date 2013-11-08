@@ -48,7 +48,7 @@
   .hint:after, [data-hint]:after {
     content: attr(data-hint);
     background: #383838;
-    color: #333333;
+    color: white;
     text-shadow: 0 -1px 0px black;
     padding: 8px 10px;
     font-size: 12pt;
@@ -132,7 +132,7 @@
  * source: hint-color-types.scss
  *
  * Contains tooltips of various types based on color differences.
- * 
+ *
  * Classes added:
  * 	1) hint--error
  * 	2) hint--warning
@@ -144,6 +144,7 @@
  * Error
  */
 .hint--error:after {
+  color: white;
   background-color: rgba(179, 78, 77, 0.8);
   text-shadow: 0 -1px 0px #592726; }
 .hint--error.hint--top:before {
@@ -159,6 +160,7 @@
  * Warning
  */
 .hint--warning:after {
+  color: white;
   background-color: rgba(192, 152, 84, 0.8);
   text-shadow: 0 -1px 0px #6c5328; }
 .hint--warning.hint--top:before {
@@ -174,6 +176,7 @@
  * Info
  */
 .hint--info:after {
+  color: white;
   background-color: rgba(57, 134, 172, 0.8);
   text-shadow: 0 -1px 0px #193b4d; }
 .hint--info.hint--top:before {
@@ -189,6 +192,7 @@
  * Success
  */
 .hint--success:after {
+  color: white;
   background-color: rgba(69, 135, 70, 0.8);
   text-shadow: 0 -1px 0px #1a321a; }
 .hint--success.hint--top:before {
@@ -204,6 +208,7 @@
  * ITC
  */
 .hint--construction:after {
+  color: white;
   background-color: rgba(204, 132, 0, 0.8);
   text-shadow: 0 -1px 0px #4d3200; }
 .hint--construction.hint--top:before {
