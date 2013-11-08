@@ -1,7 +1,3 @@
-/*! Hint.css - v1.3.0 - 2013-08-05
-* http://kushagragour.in/lab/hint/
-* Copyright (c) 2013 Kushagra Gour; Licensed MIT */
-
 /*-------------------------------------*\
 	HINT.css - A CSS tooltip library
 \*-------------------------------------*/
@@ -39,8 +35,7 @@
     visibility: hidden;
     opacity: 0;
     z-index: 1000000;
-    pointer-events: none;
-  }
+    pointer-events: none; }
   .hint:hover:before, .hint:hover:after, .hint:focus:before, .hint:focus:after, [data-hint]:hover:before, [data-hint]:hover:after, [data-hint]:focus:before, [data-hint]:focus:after {
     visibility: visible;
     opacity: 1; }
@@ -52,11 +47,11 @@
     z-index: 1000001; }
   .hint:after, [data-hint]:after {
     content: attr(data-hint);
-    background: $hint-default-border-color;
-    color: white;
-    text-shadow: $hint-text-shadow
+    background: #383838;
+    color: #333333;
+    text-shadow: 0 -1px 0px black;
     padding: 8px 10px;
-    font-size: 12px;
+    font-size: 12pt;
     line-height: 12px;
     white-space: nowrap;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); }
@@ -76,16 +71,16 @@
  * set default color for tooltip arrows
  */
 .hint--top:before {
-  border-top-color: $hint-default-border-color; }
+  border-top-color: #383838; }
 
 .hint--bottom:before {
-  border-bottom-color: $hint-default-border-color; }
+  border-bottom-color: #383838; }
 
 .hint--left:before {
-  border-left-color: $hint-default-border-color; }
+  border-left-color: #383838; }
 
 .hint--right:before {
-  border-right-color: $hint-default-border-color; }
+  border-right-color: #383838; }
 
 /**
  * top tooltip
@@ -97,10 +92,6 @@
 .hint--top:before, .hint--top:after {
   bottom: 100%;
   left: 50%; }
-.hint--top:hover:after, .hint--top:hover:before, .hint--top:focus:after, .hint--top:focus:before {
-  -webkit-transform: translateY(-8px);
-  -moz-transform: translateY(-8px);
-  transform: translateY(-8px); }
 
 /**
  * bottom tooltip
@@ -112,10 +103,6 @@
 .hint--bottom:before, .hint--bottom:after {
   top: 100%;
   left: 50%; }
-.hint--bottom:hover:after, .hint--bottom:hover:before, .hint--bottom:focus:after, .hint--bottom:focus:before {
-  -webkit-transform: translateY(8px);
-  -moz-transform: translateY(8px);
-  transform: translateY(8px); }
 
 /**
  * right tooltip
@@ -128,10 +115,6 @@
 .hint--right:before, .hint--right:after {
   left: 100%;
   bottom: 50%; }
-.hint--right:hover:after, .hint--right:hover:before, .hint--right:focus:after, .hint--right:focus:before {
-  -webkit-transform: translateX(8px);
-  -moz-transform: translateX(8px);
-  transform: translateX(8px); }
 
 /**
  * left tooltip
@@ -144,91 +127,102 @@
 .hint--left:before, .hint--left:after {
   right: 100%;
   bottom: 50%; }
-.hint--left:hover:after, .hint--left:hover:before, .hint--left:focus:after, .hint--left:focus:before {
-  -webkit-transform: translateX(-8px);
-  -moz-transform: translateX(-8px);
-  transform: translateX(-8px); }
 
 /**
  * source: hint-color-types.scss
  *
  * Contains tooltips of various types based on color differences.
- *
+ * 
  * Classes added:
  * 	1) hint--error
  * 	2) hint--warning
  * 	3) hint--info
  * 	4) hint--success
- *
+ * 	5) hint--construction
  */
 /**
  * Error
  */
 .hint--error:after {
-  background-color: $hint-error-background;
-  text-shadow: $hint-text-shadow; }
+  background-color: rgba(179, 78, 77, 0.8);
+  text-shadow: 0 -1px 0px #592726; }
 .hint--error.hint--top:before {
-  border-top-color: $hint-error-background; }
+  border-top-color: #b34e4d; }
 .hint--error.hint--bottom:before {
-  border-bottom-color: $hint-error-background; }
+  border-bottom-color: #b34e4d; }
 .hint--error.hint--left:before {
-  border-left-color: $hint-error-background; }
+  border-left-color: #b34e4d; }
 .hint--error.hint--right:before {
-  border-right-color: $hint-error-background; }
+  border-right-color: #b34e4d; }
 
 /**
  * Warning
  */
 .hint--warning:after {
-  background-color: $hint-warning-background;
-  text-shadow: $hint-text-shadow; }
+  background-color: rgba(192, 152, 84, 0.8);
+  text-shadow: 0 -1px 0px #6c5328; }
 .hint--warning.hint--top:before {
-  border-top-color: $hint-warning-background; }
+  border-top-color: #c09854; }
 .hint--warning.hint--bottom:before {
-  border-bottom-color: $hint-warning-background; }
+  border-bottom-color: #c09854; }
 .hint--warning.hint--left:before {
-  border-left-color: $hint-warning-background; }
+  border-left-color: #c09854; }
 .hint--warning.hint--right:before {
-  border-right-color: $hint-warning-background; }
+  border-right-color: #c09854; }
 
 /**
  * Info
  */
 .hint--info:after {
-  background-color: $hint-info-background;
-  text-shadow: $hint-text-shadow; }
+  background-color: rgba(57, 134, 172, 0.8);
+  text-shadow: 0 -1px 0px #193b4d; }
 .hint--info.hint--top:before {
-  border-top-color: $hint-info-background; }
+  border-top-color: #3986ac; }
 .hint--info.hint--bottom:before {
-  border-bottom-color: $hint-info-background; }
+  border-bottom-color: #3986ac; }
 .hint--info.hint--left:before {
-  border-left-color: $hint-info-background; }
+  border-left-color: #3986ac; }
 .hint--info.hint--right:before {
-  border-right-color: $hint-info-background; }
+  border-right-color: #3986ac; }
 
 /**
  * Success
  */
 .hint--success:after {
-  background-color: $hint-success-background;
-  text-shadow: $hint-text-shadow; }
+  background-color: rgba(69, 135, 70, 0.8);
+  text-shadow: 0 -1px 0px #1a321a; }
 .hint--success.hint--top:before {
-  border-top-color: $hint-success-background; }
+  border-top-color: #458746; }
 .hint--success.hint--bottom:before {
-  border-bottom-color: $hint-success-background; }
+  border-bottom-color: #458746; }
 .hint--success.hint--left:before {
-  border-left-color: $hint-success-background; }
+  border-left-color: #458746; }
 .hint--success.hint--right:before {
-  border-right-color: $hint-success-background; }
+  border-right-color: #458746; }
+
+/**
+ * ITC
+ */
+.hint--construction:after {
+  background-color: rgba(204, 132, 0, 0.8);
+  text-shadow: 0 -1px 0px #4d3200; }
+.hint--construction.hint--top:before {
+  border-top-color: #cc8400; }
+.hint--construction.hint--bottom:before {
+  border-bottom-color: #cc8400; }
+.hint--construction.hint--left:before {
+  border-left-color: #cc8400; }
+.hint--construction.hint--right:before {
+  border-right-color: #cc8400; }
 
 /**
  * source: hint-always.scss
  *
  * Defines a persisted tooltip which shows always.
- *
+ * 
  * Classes added:
  * 	1) hint--always
- *
+ * 	
  */
 .hint--always:after, .hint--always:before {
   opacity: 1;
@@ -254,10 +248,10 @@
  * source: hint-rounded.scss
  *
  * Defines rounded corner tooltips.
- *
+ * 
  * Classes added:
  * 	1) hint--rounded
- *
+ *  
  */
 .hint--rounded:after {
   border-radius: 4px; }
