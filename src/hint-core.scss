@@ -29,7 +29,10 @@
 		@include transition(0s ease);
 	}
 
-	&:hover:before, &:hover:after,
+	&:hover:before, &:hover:after {
+		visibility: visible;
+		opacity: 1;
+	}
 	&:focus:before, &:focus:after {
 		visibility: visible;
 		opacity: 1;
