@@ -44,8 +44,10 @@
 		#{$propertyX}: 100%;
 		bottom: 50%;
 	}
+	&:hover, &:focus {
+		@include set-margin('translateY', $transformationDirection);
+	}
 }
-
 
 /**
  * set default color for tooltip arrows

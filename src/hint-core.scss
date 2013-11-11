@@ -16,6 +16,7 @@
 
 	&:before, &:after {
 		position: absolute;
+		@include transform(translate3d(0, 0, 0));
 
 		// HACK: visibility is set to hidden because IE & Opera don't support
 		// pointer-events on HTML content yet because of which hovering a hidden tooltip
@@ -25,6 +26,7 @@
 		z-index: $zIndex;
 		// shouldn't receive pointer events, otherwise even hovering tooltip will make it appear
 		pointer-events: none;
+		@include transition(0s ease);
 	}
 
 	&:hover:before, &:hover:after,
