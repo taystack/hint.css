@@ -1,3 +1,17 @@
+##Fork from chinchang/hint.css
+This fork is simply to make the tooltips appear instead of animate. This makes for a smokin fast tooltip.
+Cool project [chinchang](http://www.github.com/chinchang/hint.css).
+*Effects file removed.
+*Most transformations and transitions removed.
+
+Install with bower:
+
+ bower install https://github.com/taystack/hint.css.git#master
+ 
+Add tis line to your bower.json file:
+
+ "hint.css": "https://github.com/taystack/hint.css.git#master",
+
 # Hint.css [v1.3.0]
 *A tooltip library in CSS for your lovely websites*
 
