@@ -17,6 +17,8 @@
 	&:after {
 		color: $fontColor;
 		background-color: rgba($color, 0.8);
+		border-raduis: 2px;
+		border: 1px solid rgba(0,0,0,0.5);
 		text-shadow: 0 -1px 0px darken($color, $textShadowDarkenAmount);
 	}
 
