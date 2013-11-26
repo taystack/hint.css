@@ -32,11 +32,23 @@
    */ }
   .hint:before, .hint:after, [data-hint]:before, [data-hint]:after {
     position: absolute;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     visibility: hidden;
     opacity: 0;
     z-index: 1000000;
-    pointer-events: none; }
-  .hint:hover:before, .hint:hover:after, .hint:focus:before, .hint:focus:after, [data-hint]:hover:before, [data-hint]:hover:after, [data-hint]:focus:before, [data-hint]:focus:after {
+    pointer-events: none;
+    -webkit-transition: 0s ease;
+    -moz-transition: 0s ease;
+    -o-transition: 0s ease;
+    transition: 0s ease; }
+  .hint:hover:before, .hint:hover:after, [data-hint]:hover:before, [data-hint]:hover:after {
+    visibility: visible;
+    opacity: 1; }
+  .hint:focus:before, .hint:focus:after, [data-hint]:focus:before, [data-hint]:focus:after {
     visibility: visible;
     opacity: 1; }
   .hint:before, [data-hint]:before {
@@ -46,87 +58,16 @@
     border: 6px solid transparent;
     z-index: 1000001; }
   .hint:after, [data-hint]:after {
-    content: attr(data-hint);
     background: #383838;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     color: white;
-    text-shadow: 0 -1px 0px black;
-    padding: 8px 10px;
+    content: attr(data-hint);
     font-size: 12pt;
     line-height: 12px;
-    white-space: nowrap;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); }
-
-/**
- * source: hint-position.scss
- *
- * Defines the positoning logic for the tooltips.
- *
- * Classes added:
- * 	1) hint--top
- * 	2) hint--bottom
- * 	3) hint--left
- * 	4) hint--right
- */
-/**
- * set default color for tooltip arrows
- */
-.hint--top:before {
-  border-top-color: #383838; }
-
-.hint--bottom:before {
-  border-bottom-color: #383838; }
-
-.hint--left:before {
-  border-left-color: #383838; }
-
-.hint--right:before {
-  border-right-color: #383838; }
-
-/**
- * top tooltip
- */
-.hint--top:before {
-  margin-bottom: -12px; }
-.hint--top:after {
-  margin-left: -18px; }
-.hint--top:before, .hint--top:after {
-  bottom: 100%;
-  left: 50%; }
-
-/**
- * bottom tooltip
- */
-.hint--bottom:before {
-  margin-top: -12px; }
-.hint--bottom:after {
-  margin-left: -18px; }
-.hint--bottom:before, .hint--bottom:after {
-  top: 100%;
-  left: 50%; }
-
-/**
- * right tooltip
- */
-.hint--right:before {
-  margin-left: -12px;
-  margin-bottom: -6px; }
-.hint--right:after {
-  margin-bottom: -14px; }
-.hint--right:before, .hint--right:after {
-  left: 100%;
-  bottom: 50%; }
-
-/**
- * left tooltip
- */
-.hint--left:before {
-  margin-right: -12px;
-  margin-bottom: -6px; }
-.hint--left:after {
-  margin-bottom: -14px; }
-.hint--left:before, .hint--left:after {
-  right: 100%;
-  bottom: 50%; }
+    padding: 8px 10px;
+    text-shadow: 0 -1px 0px black;
+    white-space: nowrap; }
 
 /**
  * source: hint-color-types.scss
@@ -146,6 +87,8 @@
 .hint--error:after {
   color: white;
   background-color: rgba(179, 78, 77, 0.8);
+  border-raduis: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   text-shadow: 0 -1px 0px #592726; }
 .hint--error.hint--top:before {
   border-top-color: #b34e4d; }
@@ -162,6 +105,8 @@
 .hint--warning:after {
   color: white;
   background-color: rgba(192, 152, 84, 0.8);
+  border-raduis: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   text-shadow: 0 -1px 0px #6c5328; }
 .hint--warning.hint--top:before {
   border-top-color: #c09854; }
@@ -178,6 +123,8 @@
 .hint--info:after {
   color: white;
   background-color: rgba(57, 134, 172, 0.8);
+  border-raduis: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   text-shadow: 0 -1px 0px #193b4d; }
 .hint--info.hint--top:before {
   border-top-color: #3986ac; }
@@ -194,6 +141,8 @@
 .hint--success:after {
   color: white;
   background-color: rgba(69, 135, 70, 0.8);
+  border-raduis: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   text-shadow: 0 -1px 0px #1a321a; }
 .hint--success.hint--top:before {
   border-top-color: #458746; }
@@ -210,6 +159,8 @@
 .hint--construction:after {
   color: white;
   background-color: rgba(204, 132, 0, 0.8);
+  border-raduis: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
   text-shadow: 0 -1px 0px #4d3200; }
 .hint--construction.hint--top:before {
   border-top-color: #cc8400; }
@@ -219,44 +170,3 @@
   border-left-color: #cc8400; }
 .hint--construction.hint--right:before {
   border-right-color: #cc8400; }
-
-/**
- * source: hint-always.scss
- *
- * Defines a persisted tooltip which shows always.
- * 
- * Classes added:
- * 	1) hint--always
- * 	
- */
-.hint--always:after, .hint--always:before {
-  opacity: 1;
-  visibility: visible; }
-.hint--always.hint--top:after, .hint--always.hint--top:before {
-  -webkit-transform: translateY(-8px);
-  -moz-transform: translateY(-8px);
-  transform: translateY(-8px); }
-.hint--always.hint--bottom:after, .hint--always.hint--bottom:before {
-  -webkit-transform: translateY(8px);
-  -moz-transform: translateY(8px);
-  transform: translateY(8px); }
-.hint--always.hint--left:after, .hint--always.hint--left:before {
-  -webkit-transform: translateX(-8px);
-  -moz-transform: translateX(-8px);
-  transform: translateX(-8px); }
-.hint--always.hint--right:after, .hint--always.hint--right:before {
-  -webkit-transform: translateX(8px);
-  -moz-transform: translateX(8px);
-  transform: translateX(8px); }
-
-/**
- * source: hint-rounded.scss
- *
- * Defines rounded corner tooltips.
- * 
- * Classes added:
- * 	1) hint--rounded
- *  
- */
-.hint--rounded:after {
-  border-radius: 4px; }
