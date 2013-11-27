@@ -1,0 +1,15 @@
+/**
+ * source: hint-always.scss
+ *
+ * Defines a hidden tooltip.
+ *
+ * Classes added:
+ *         1) hint--disabled
+ *
+ */
+
+.#{$prefix}disabled {
+  &:after, &:before {
+    visibility: hidden;
+  }
+}
